@@ -1,0 +1,273 @@
+@charset "utf-8";
+ .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/bcn.jpg) center/cover no-repeat;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        /* =============================================
+   DENIMHEAAD — Main Stylesheet
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #0a0a0a;
+  --white: #f5f0eb;
+  --accent: #e8ff00;
+  --gray: #1c1c1c;
+  --text-muted: #666;
+}
+
+html, body {
+  height: 100%;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---- BACKGROUND GRID ---- */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+}
+
+/* ---- NAVBAR ---- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--accent);
+  display: grid;
+  place-items: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.brand-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.brand-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--white);
+}
+
+/* ---- LOGIN BUTTON ---- */
+.btn-login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--black);
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  padding: 10px 22px;
+  border-radius: 3px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.12);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(232,255,0,0.35);
+}
+
+.btn-login:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+.btn-login svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---- HERO SECTION ---- */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 48px 80px;
+}
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.hero-tag::before,
+.hero-tag::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 12vw, 140px);
+  letter-spacing: 6px;
+  line-height: 0.9;
+  margin-bottom: 24px;
+}
+
+.hero-title .line1 {
+  color: var(--white);
+}
+
+.hero-title .line2 {
+  background: linear-gradient(135deg, var(--accent) 0%, #b8cc00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-desc {
+  max-width: 440px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+
+/* ---- FLOATING SHOE ---- */
+.hero-shoe {
+  margin: 0 auto 40px;
+  animation: floatShoe 3s ease-in-out infinite;
+}
+
+@keyframes floatShoe {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-14px) rotate(1deg); }
+}
+
+/* ---- STATS ROW ---- */
+.stats-row {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  padding-top: 32px;
+  border-top: 1px solid #1c1c1c;
+  margin-top: 16px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 3px;
+  color: var(--white);
+}
+
+.stat .lbl {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ---- TICKER BAR ---- */
+.ticker-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--accent);
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.ticker {
+  display: flex;
+  gap: 48px;
+  animation: ticker 14s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker span {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  nav { padding: 16px 24px; }
+  .hero { padding: 100px 24px 80px; }
+  .stats-row { gap: 24px; }
+}
